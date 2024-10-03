@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+/* 
+*{
+    box-sizing: border-box;
+} */
+
+:root{
+    --primary-color:#147a55;
+    --secondary-color:#fffbe6;
+    --primary-color-dark:#20694d;
+    --secondary-color-dark:#fdf7d7;
+}

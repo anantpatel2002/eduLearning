@@ -1,0 +1,66 @@
+.navbar {
+  background-color: var(--secondary-color);
+  /* position: absolute;
+  min-width: 100%;
+  z-index: 1045; */
+  box-shadow: 0 -10px 20px black;
+}
+
+.form-control:focus,
+.input-group-text:has(+ .form-control:focus) {
+  box-shadow: none;
+  border: 1px solid var(--primary-color);
+  transition: 0.2s;
+  color: var(--primary-color);
+}
+
+.form-control,
+.input-group-text:has(+ .form-control) {
+  transition: 0.2s;
+}
+
+.logo-text {
+  font-size: 35px;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  color: black;
+}
+
+.logo-inner-text {
+  color: var(--primary-color);
+}
+
+
+.btn-custom-outline {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  transition: 0.2s;
+}
+
+.btn-custom-outline:hover{
+    background-color: var(--secondary-color-dark);
+}
+
+.btn-custom {
+    border: 1px solid var(--primary-color);
+    background-color: #147a55;
+    color: #fff;
+    transition: 0.2s;
+
+}
+
+.btn-custom:hover{
+    background-color: var(--primary-color-dark);
+}
+
+.dropdown-item:active {
+  background-color: #147a55;
+}
+
+/* .custom-offcanvas{
+    height:90.25%;
+    align-self: flex-end;
+} */
+
+
+

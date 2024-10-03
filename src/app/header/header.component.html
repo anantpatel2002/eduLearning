@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-lg px-2 ">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand d-flex align-items-center gap-1 ms-sm-5 ms-lg-0 ms-xl-5"
+      href="#"
+    >
+      <img
+        src="/images/logo.png"
+        alt="Logo"
+        width="50"
+        height="50"
+        class="d-inline-block align-text-top"
+      />
+      <span class=" logo-text d-none d-sm-flex"
+        >edu<span class="logo-inner-text">Learning</span></span
+      >
+    </a>
+    <button
+      class="navbar-toggler me-sm-5"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse px-sm-5 px-lg-0 px-xl-5 px-0"
+      id="navbarSupportedContent"
+    >
+      <div class="mx-lg-auto col-xl-5 col-lg-4">
+        <div class="input-group">
+          <span
+            class="input-group-text bg-white border-end-0 rounded-start-pill"
+            ><i class="bi bi-search"></i
+          ></span>
+          <input
+            class="form-control border-start-0 rounded-end-pill"
+            type="text"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+        </div>
+      </div>
+      <ul
+        class="navbar-nav mb-2 mb-lg-0 d-flex align-items-lg-center p-2 gap-1 gap-lg-2 gap-xl-4"
+      >
+        <li class="nav-item dropdown">
+          <button
+            class="btn btn-custom-outline"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+          >
+          Categories
+          </button>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Resources
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+
+        <div class="auth d-flex">
+          <button class="px-4 py-1 btn btn-custom-outline rounded-start-5 rounded-end-0 fw-bold">
+            Log In
+          </button>
+          <button class="px-4 py-1 btn btn-custom rounded-end-5 rounded-start-0 fw-bold">
+            Sign Up
+          </button>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div
+  class="offcanvas offcanvas-end custom-offcanvas"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Categories</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">...</div>
+</div>
+
