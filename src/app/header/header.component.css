@@ -41,7 +41,7 @@
     background-color: var(--secondary-color-dark);
 }
 
-.btn-custom {
+/* .btn-custom {
     border: 1px solid var(--primary-color);
     background-color: #147a55;
     color: #fff;
@@ -51,7 +51,7 @@
 
 .btn-custom:hover{
     background-color: var(--primary-color-dark);
-}
+} */
 
 .dropdown-item:active {
   background-color: #147a55;

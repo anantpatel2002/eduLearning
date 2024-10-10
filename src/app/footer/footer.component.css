@@ -1,0 +1,10 @@
+.logo-text {
+    font-size: 35px;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    color: black;
+  }
+  
+  .logo-inner-text {
+    color: var(--primary-color);
+  }

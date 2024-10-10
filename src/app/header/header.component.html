@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a
       class="navbar-brand d-flex align-items-center gap-1 ms-sm-5 ms-lg-0 ms-xl-5"
-      href="#"
+      routerLink="/"
     >
       <img
         src="/images/logo.png"
@@ -77,12 +77,12 @@
         </li>
 
         <div class="auth d-flex">
-          <button class="px-4 py-1 btn btn-custom-outline rounded-start-5 rounded-end-0 fw-bold">
+          <a routerLink="login" class="px-4 py-1 btn btn-custom-outline rounded-start-5 rounded-end-0 fw-bold">
             Log In
-          </button>
-          <button class="px-4 py-1 btn btn-custom rounded-end-5 rounded-start-0 fw-bold">
+          </a>
+          <a routerLink="register" class="px-4 py-1 btn btn-custom rounded-end-5 rounded-start-0 fw-bold">
             Sign Up
-          </button>
+          </a>
         </div>
       </ul>
     </div>

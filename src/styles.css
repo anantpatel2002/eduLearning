@@ -9,5 +9,13 @@
     --primary-color:#147a55;
     --secondary-color:#fffbe6;
     --primary-color-dark:#20694d;
-    --secondary-color-dark:#fdf7d7;
+    --secondary-color-dark:#fff8d3;
 }
+
+::selection{
+    background-color: var(--primary-color-dark);
+    color: white;
+}
+
+
+
