@@ -1,73 +1,189 @@
-<section class="d-flex justify-content-center align-items-center position-relative min-vh-100 green-bg my-class">
-    <div class="container m-5">
-      <div class="row d-flex justify-content-center align-items-center">  
-        <div class="col-lg-9">
-          <div class="card text-black overflow-hidden" style="border-radius: 25px;">
-            <div class="card-body p-0">
-              <div class="d-flex flex justify-content-center">
-                <div class="col-md-7 col-lg-6 px-5">
-  
-                  <p class="text-center green-txt h1 fw-bolder mb-3 mb-lg-5 mx-1 mt-4 mt-lg-5">Sign up</p>
-  
-                  <form class="mx-1">
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="bi icon-custom me-3 bi-person-fill"></i>
-                        <div class="form-floating mt-3 flex-fill mb-3">
-                            <input type="text" class="form-control rounded-1 border-black border-opacity-25" id="name" placeholder="name" name="full name">
-                            <label class="text-secondary placeholder-font" for="name">Full Name</label>
+<section
+  class="d-flex justify-content-center position-relative min-vh-100 green-bg my-class"
+>
+  <div class="container m-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-9">
+        <div
+          class="card text-black overflow-hidden"
+          style="border-radius: 25px"
+        >
+          <div class="card-body p-0">
+            <div class="d-flex flex justify-content-center">
+              <div class="col-md-7 col-lg-6 px-5">
+                <p
+                  class="text-center green-txt h1 fw-bolder  mx-1 mt-3"
+                >
+                  Sign up
+                </p>
+
+                <form class="" #form="ngForm" name="register">
+                  <div class="d-flex flex-row align-items-center mb-2 position-relative">
+                    <i class="bi icon-custom me-3 bi-person-fill"></i>
+                    <div class="form-floating mt-3 flex-fill mb-3">
+                      <input
+                        type="text"
+                        class="form-control rounded-1 shadow-none"
+                        [class.border-danger]="checkValidity(name)"
+                        id="name"
+                        placeholder="name"
+                        name="full name"
+                        [(ngModel)]="fullName"
+                        #name="ngModel"
+                        required
+                      />
+                      <label class="text-secondary placeholder-font" for="name"
+                        >Full Name</label
+                      >
+                    </div>
+                    @if(name.invalid && (name.dirty || name.touched)){
+                      <div class="position-absolute ms-5 small text-danger" style="bottom: -10px;">
+                        Name is Required
+                      </div>
+                    }                 
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-2 position-relative">
+                    <i class="bi icon-custom me-3 bi-envelope-fill"></i>
+                    <div class="form-floating mt-3 flex-fill mb-3">
+                      <input
+                        type="email"
+                        class="form-control rounded-1 shadow-none"
+                        id="email"
+                        placeholder="email"
+                        [class.border-danger]="checkValidity(email)"
+                        name="email"
+                        [(ngModel)]="userDetails.email"
+                        #email="ngModel"
+                        required
+                        email
+                      />
+                      <label class="text-secondary placeholder-font" for="email"
+                        >Email Address</label
+                      >
+                    </div>
+
+                   
+                      @if(email.hasError('required') &&  (email.dirty || email.touched)){
+                        <div class="position-absolute ms-5 small text-danger" style="bottom: -10px;">
+                          Email is required
                         </div>
-                    </div>
-                    
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="bi icon-custom me-3 bi-envelope-fill" ></i>
-                        <div class="form-floating mt-3 flex-fill mb-3">
-                            <input type="email" class="form-control rounded-1 border-black border-opacity-25" id="email" placeholder="email">
-                            <label class="text-secondary placeholder-font" for="email">Email Address</label>
+                      }
+                      @else if(email.hasError("email")  &&  (email.dirty || email.touched)){
+
+                        <div class="position-absolute ms-5 small text-danger" style="bottom: -10px;">
+                          Enter valid email
                         </div>
+                      }
+                   
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-2 position-relative">
+                    <i class="bi icon-custom me-3 bi-lock-fill"></i>
+                    <div class="form-floating mt-3 flex-fill mb-3">
+                      <input
+                        type="password"
+                        class="form-control rounded-1 shadow-none"
+                        [class.border-danger]="checkValidity(password)"
+                        id="password"
+                        placeholder="password"
+                        name="password"
+                        [(ngModel)]="userDetails.password"
+                        #password="ngModel"
+                        required
+                        minlength="2"
+                      />
+                      <label
+                        class="text-secondary placeholder-font"
+                        for="password"
+                        >Password</label
+                      >
                     </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="bi icon-custom me-3 bi-lock-fill"></i>
-                        <div class="form-floating mt-3 flex-fill mb-3">
-                            <input type="password" class="form-control rounded-1 border-black border-opacity-25" id="password" placeholder="password">
-                            <label class="text-secondary placeholder-font" for="password">Password</label>
+
+                    @if(password.hasError('required') && (password.dirty || password.touched)){
+                        <div class="position-absolute ms-5 small text-danger" style="bottom: -10px;">
+                          Password is required
                         </div>
+                    }@else if (password.hasError('minlength') && (password.dirty || password.touched)) {
+                      <div class="position-absolute ms-5 small text-danger" style="bottom: -10px;">
+                        Password must atleast have 2 characters
+                      </div>
+                    }
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-2 position-relative">
+                    <i class="bi icon-custom me-3 bi-key-fill"></i>
+                    <div class="form-floating mt-3 flex-fill mb-3 my-class">
+                      <input
+                        type="password"
+                        class="form-control rounded-1 shadow-none"
+                        [class.border-danger]="checkValidity(confirmPassword)"
+                        id="confirmPassword"
+                        placeholder="confirm password"
+                        name="confirm password"
+                        ngModel
+                        #confirmPassword="ngModel"
+                        required
+                      />
+                      <label
+                        class="text-secondary placeholder-font"
+                        for="confirmPassword"
+                        >Confirm Password</label
+                      >
                     </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-2">
-                        <i class="bi icon-custom me-3 bi-key-fill"></i>
-                        <div class="form-floating mt-3 flex-fill mb-3 my-class">
-                            <input type="password" class="form-control rounded-1 border-black border-opacity-25" id="confirmPassword" placeholder="confirm password">
-                            <label class="text-secondary placeholder-font" for="confirmPassword">Confirm Password</label>
-                        </div>
+                    @if(confirmPassword.hasError('required') && (confirmPassword.dirty || confirmPassword.touched)){
+                      <div class="position-absolute ms-5 small text-danger" style="bottom: -10px;">
+                        Confirm Password is required
+                      </div>
+                  }@else if ((password.value != confirmPassword.value) && (confirmPassword.dirty || confirmPassword.touched)) {
+                    <div class="position-absolute ms-3 small text-danger" style="bottom: -10px; right:-30px;">
+                      Password and Confirm Password should match
                     </div>
-  
-                    <div class="form-check d-flex justify-content-center mb-4 mb-lg-5">
-                      <input class="form-check-input me-2 border-black border-opacity-50" type="checkbox" value="" id="form2Example3c" />
-                      <label class="form-check-label" for="form2Example3">
-                        I agree all statements in <a href="#!">Terms of service</a>
-                      </label>
-                    </div>
-  
-                    <div class="d-flex justify-content-center mx-4 mb-4">
-                      <button  type="button" class="btn btn-custom btn-lg rounded-1">Register</button>
-                    </div>
-  
-                  </form>
-  
-                </div>
-                <div class=" d-none col-5 col-lg-6 d-md-flex justify-content-center align-items-center bg-color-home border-md-start border-2">
-  
-                  <img src="images/signup_cat.gif"
-                    class="img-fluid" alt="Sample image">
-  
-                </div>
+                  }
+                  </div>
+
+                  <div
+                    class="form-check d-flex justify-content-center mb-4 mb-lg-5"
+                  >
+                    <input
+                      class="form-check-input me-2 border-black border-opacity-50"
+                      type="checkbox"
+                      value=""
+                      id="form2Example3c"
+                      name="aggrement"
+                      [(ngModel)]="agreement"
+                    />
+                    <label class="form-check-label" for="form2Example3c">
+                      I agree all the statements in
+                      <a href="#!">Terms of service</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-4">
+                    <button
+                      type="button"
+                      class="btn btn-custom btn-lg rounded-1"
+                      [disabled]="!(agreement && form.valid && !checkValidity(confirmPassword)) "
+                      (click)="addUser()"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="d-none col-5 col-lg-6 d-md-flex justify-content-center align-items-center bg-color-home border-md-start border-2"
+              >
+                <img
+                  src="images/signup_cat.gif"
+                  class="img-fluid"
+                  alt="Sample image"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

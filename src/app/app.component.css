@@ -1,4 +1,4 @@
-.btn-custom {
+.btn-custom,.btn-custom:disabled {
   border: 1px solid #147a55;
   background-color: #147a55;
   color: #fff;
@@ -9,6 +9,8 @@
   color: #fff;
   background-color: #20694d;
 }
+
+
 
 .green-bg-dark {
   background-color: #147a55;

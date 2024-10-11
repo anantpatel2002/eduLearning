@@ -2,6 +2,7 @@ import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { Profile } from './profile-page.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { getCookie, setCookie } from '../utils/cookies.utils';
+import { Register } from '../register/register.model';
 
 @Injectable({
   providedIn: 'root',
@@ -51,14 +52,33 @@ export class ProfilePageService {
   }
 
   login(auth:{email:string,password:string}){
-    this.httpClient.post("http://localhost:8080/api/login",auth,{
+    return this.httpClient.post("http://localhost:8080/api/login",auth,{
         "responseType":"text"
-    }).subscribe({
-      next:resData=>{
+    })
+  }
+
+  addUser(userDetails:Register){
+    this.httpClient.post("http://localhost:8080/api/user",userDetails).subscribe({
+      next:(resData)=>{
         console.log(resData);
-        setCookie('JwtToken',resData);
         
       }
     })
+  }
+
+
+  changePassword(oldPassword: string, newPassword: string) {
+    
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${getCookie('JwtToken')}`,
+      'X-Requested-With': 'XMLHttpRequest',
+    });
+    
+    return this.httpClient
+      .put<{message:string, status:number, timestamp:string}>('http://localhost:8080/api/update/password', {oldPassword: oldPassword, newPassword: newPassword},{
+        headers: headers,
+        withCredentials: true,
+        // responseType:'text'
+      });
   }
 }

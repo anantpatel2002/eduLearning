@@ -13,7 +13,7 @@
                 <div class="form-floating mb-3 w-100">
                     <input type="email" class="form-control custom-form bg-white border-black" placeholder=""
                         disabled />
-                    <label class="text-black">Your email address is <strong>abc&#64;gmail.com</strong></label>
+                    <label class="text-black">Your email address is <strong>{{email}}</strong></label>
                 </div>
             </div>
         </div>
@@ -22,11 +22,11 @@
             <div class="d-flex flex-column w-100">
                 <p class="fw-bold fs-5">Password:</p>
                 <div class="form-floating mb-3 w-100">
-                    <input type="email" class="form-control custom-form bg-white" placeholder=""/>
+                    <input type="email" class="form-control custom-form bg-white" placeholder="" name="oldPassword" [(ngModel)]="oldPassword"/>
                     <label>Enter current password</label>
                 </div>
                 <div class="form-floating mb-3 w-100">
-                    <input type="email" class="form-control custom-form bg-white" placeholder=""/>
+                    <input type="email" class="form-control custom-form bg-white" placeholder="" name="newPassword" [(ngModel)]="newPassword" />
                     <label>Enter new password</label>
                 </div>
                 <div class="form-floating mb-3 w-100">
@@ -34,7 +34,7 @@
                     <label>Re-Type new password</label>
                 </div>
             </div>
-            <button class="btn btn-custom btn-lg">Change Password</button>
+            <button class="btn btn-custom btn-lg" (click)="changePassword()">Change Password</button>
         </div>
     </form>
 </div>
